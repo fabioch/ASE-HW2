@@ -1,0 +1,59 @@
+<!DOCTYPE>
+<html ng-app="myApp">
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<title>Contact List App</title>
+</head>
+<body>
+	<div class="container" ng-controller="AppCtrl">
+		<h1>Car List App</h1>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Make</th>
+					<th>Model</th>
+					<th>Price</th>
+					<th>Miles</th>
+					<th>Year</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input class="form-control" ng-model="car.make"></td>
+					<td><input class="form-control" ng-model="car.model"></td>
+					<td><input class="form-control" ng-model="car.price"></td>
+					<td><input class="form-control" ng-model="car.miles"></td>
+					<td><input class="form-control" ng-model="car.year"></td>
+					<td>
+						<button class="btn btn-primary" ng-click="addCar()">Add Car</button>
+					</td>
+					<td>
+						<button class="btn btn-info" ng-click="update()">Update</button>
+						&nbsp;&nbsp;
+						<button class="btn btn-info" ng-click="deselect()">Clear</button>
+					</td>
+					
+				</tr>
+				<tr ng-repeat="car in carlist">
+					<td>{{car.make}}</td>
+					<td>{{car.model}}</td>
+					<td>{{car.price}}</td>
+					<td>{{car.miles}}</td>
+					<td>{{car.year}}</td>
+					<td><button class="btn btn-danger" ng-click="remove(car._id)">Remove</button></td>
+          			<td><button class="btn btn-warning" ng-click="edit(car._id)">Edit</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+	<script src="controllers/controller.js"></script>
+</body>
+</html>
